@@ -6,13 +6,13 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 10:58:22 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/10 10:59:59 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/10 11:36:18 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AVERAGE_H
 # define AVERAGE_H
 
-
+float   average(const int *arr, int size);
 
 #endif
