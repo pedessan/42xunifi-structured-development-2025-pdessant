@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   critical_windows.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rockyd <rockyd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:21:12 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/10 15:40:22 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/10 20:13:44 by rockyd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int count_critical_windows(const int *readings, int size)
     return (ret);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 int main()
 {
     int c[15] = {104, 165, 100, 102, 90, 72, 65, 123, 45, 82, 91, 132, 123, 167, 91};
@@ -76,7 +76,7 @@ int main()
     count = count_critical_windows(c, size);
     printf("%d\n", count);
     return (0);
-}
+} */
 
 /* int count_critical_windows(const int *readings, int size)
 {
