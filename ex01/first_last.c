@@ -6,14 +6,14 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:38:20 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/10 11:59:01 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:03:19 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "first_last.h"
 
 
-int first_occ(int arr[], int size, int target)
+static int first_occ(int arr[], int size, int target)
 {
     int i = 0;
 
@@ -26,7 +26,7 @@ int first_occ(int arr[], int size, int target)
     return (-1);
 }
 
-int last_occ(int arr[], int size, int target)
+static int last_occ(int arr[], int size, int target)
 {
     int last;
 
