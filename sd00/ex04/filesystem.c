@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filesystem.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rockyd <rockyd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:28:57 by rockyd            #+#    #+#             */
-/*   Updated: 2025/06/11 01:42:19 by rockyd           ###   ########.fr       */
+/*   Updated: 2025/06/11 13:49:37 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ FSNode *create_file(const char *name, int size)
 	file->sibling = NULL;
 	return (file);
 }
+
 FSNode *create_folder(const char *name)
 {
 	FSNode	*folder;
@@ -56,14 +57,17 @@ void add_child(FSNode *parent, FSNode *child)
 		cpy->sibling = child;
 	}
 }
+
 FSNode *get_children(const FSNode *parent)
 {
 	return(parent->child);
 }
+
 FSNode *get_sibling(const FSNode *node)
 {
 	return (node->sibling);
 }
+
 /* 
 #include <stdio.h>
 
