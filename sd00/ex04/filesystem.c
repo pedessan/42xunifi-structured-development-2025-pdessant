@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:28:57 by rockyd            #+#    #+#             */
-/*   Updated: 2025/06/11 13:49:37 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/11 17:00:12 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ void add_child(FSNode *parent, FSNode *child)
 		while (cpy->sibling)
 			cpy = cpy->sibling;
 		cpy->sibling = child;
+/* 		if (cpy->child == NULL)
+			cpy->child = child;
+		else 
+			cpy->sibling = child; */ //aggiunta da valutare
 	}
 }
 
