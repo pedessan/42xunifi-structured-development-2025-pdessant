@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   password_validator.h                               :+:      :+:    :+:   */
+/*   grade_map.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 08:51:07 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/11 09:59:37 by pdessant         ###   ########.fr       */
+/*   Created: 2025/06/11 10:01:56 by pdessant          #+#    #+#             */
+/*   Updated: 2025/06/11 10:53:31 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PASSWORD_VALIDATOR_H
-# define PASSWORD_VALIDATOR_H
+#ifndef GRADE_MAP_H
+# define GRADE_MAP_H
 
-/* STRUCT */
+typedef const char* (*GradeMapper)(int);
 
-typedef enum
-{
-    VALID = 0,
-    INVALID = 1
-} PwStatus;
-
-
-PwStatus validate_password(const char *new_pw, const char *curr_pw);
+void    map_scores(const int *scores, int size, GradeMapper mapper, \
+    const char **mapped_grades);
 
 #endif
