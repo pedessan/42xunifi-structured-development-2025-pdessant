@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   workout_scheduler.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rockyd <rockyd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:14:31 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/11 17:19:39 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/11 20:42:34 by rockyd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WORKOUT_SCHEDULER_H
 # define WORKOUT_SCHEDULER_H
+
+#include <stdlib.h>
 
 // Returns a new UserData (mocked). Returns NULL on failure.
 struct UserData *get_user_data(char *username);
