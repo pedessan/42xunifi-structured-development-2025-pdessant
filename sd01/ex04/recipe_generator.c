@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:16:33 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/12 11:42:32 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/12 11:45:11 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ proves the result. The program should:
 struct Recipe *create_custom_recipe(void)
 {
     int approval = 0;
-    struct Recipe   *recipe;
+    struct Recipe   *recipe = NULL;
 
     struct Ingredients *ingredients = get_current_ingredients();
     if (!ingredients)
