@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:43:50 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/11 16:07:57 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/12 16:24:38 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define MOVIE_PLANNER_H
 
 # include <stdlib.h>
+
+struct Preferences;
+struct MovieList;
+struct Plan;
+
 // Returns user preferences. Returns NULL on failure.
 struct Preferences *get_user_preferences(void);
 
