@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:10:20 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/12 11:57:25 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:52:57 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,12 @@ int process_food_order(struct OrderRequest *request)
     if (status == 1)
         confirmation = create_standard_confirmation();
      if (!confirmation)
-    {
-        free(request);
-        return (-1);
-    }
+        return (free(request), -1);
 
     else if (status == 0)
         confirmation = create_preorder_confirmation();
     if (!confirmation)
-    {
-        free(request);
-        return (-1);
-    }
+        return (free(request), -1);
 
     send_confirmation_notification(confirmation);
     return (0);

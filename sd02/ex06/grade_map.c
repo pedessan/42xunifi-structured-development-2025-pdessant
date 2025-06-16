@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 10:01:59 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/11 11:33:04 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:38:30 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ const char  *passfail_mapper(int score)
         return ("P");
     else
         return ("F");
-
 }
 
 const char  *standard_mapper(int score)

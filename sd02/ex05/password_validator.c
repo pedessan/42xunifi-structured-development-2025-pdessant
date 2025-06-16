@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 08:51:11 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/11 13:49:51 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:37:44 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ PwStatus validate_password(const char *new_pw, const char *curr_pw)
     int lower = 0;
     int digit = 0;
     int special = 0;
-
 
     if (!new_pw || !curr_pw)
         return (INVALID);

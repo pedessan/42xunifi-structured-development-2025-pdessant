@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   task_scheduler.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rockyd <rockyd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 16:16:47 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/13 07:38:39 by rockyd           ###   ########.fr       */
+/*   Updated: 2025/06/16 15:58:44 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,12 @@ struct ScheduleResult *schedule_tasks(struct TaskList *tasks)
 
     struct PriorityMap *priorities = compute_priorities_mock(profiled);
     if (!priorities)
-    {
-        free_task_profile(profiled);
-        return (NULL);
-    }
+        return (free_task_profile(profiled), NULL);
 
     int core_count = get_available_core_count();
     struct ScheduleResult *result = create_schedule_result(core_count);
     if (!result)
-    {
-        free_task_profile(profiled);
-        free_priority_map(priorities);
-        return (NULL);
-    }
+        return (free_task_profile(profiled), free_priority_map(priorities), NULL);
 
     while (i < core_count)
     {

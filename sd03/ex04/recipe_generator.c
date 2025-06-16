@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:16:33 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/12 11:50:56 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:55:47 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,37 +36,22 @@ struct Recipe *create_custom_recipe(void)
 
     struct TasteProfile *taste = get_user_taste_profile();
     if (!taste)
-    {
-        free_ingredients(ingredients);
-        return (NULL);
-    }
+        return (free_ingredients(ingredients), NULL);
 
     while (1)
     {
         recipe = create_recipe(ingredients, taste);
         if (!recipe)
-        {
-            free_ingredients (ingredients);
-            free_taste_profile (taste);
-            return (NULL);
-        }
+            return (free_ingredients (ingredients), free_taste_profile (taste), NULL);
 
         approval = get_user_approval(recipe);
 
         if (approval == 1)
-        {
-            free_ingredients (ingredients);
-            free_taste_profile (taste);
-            return (recipe);
-        }
+            return (free_ingredients (ingredients), free_taste_profile (taste), recipe);
 
         if (approval != 0)
-        {
-            free_ingredients (ingredients);
-            free_taste_profile (taste);
-            free_recipe (recipe);
-            return (NULL);
-        }
+            return (free_ingredients (ingredients), free_taste_profile (taste), \
+                        free_recipe (recipe), NULL);
         free_recipe (recipe);
     }
 }

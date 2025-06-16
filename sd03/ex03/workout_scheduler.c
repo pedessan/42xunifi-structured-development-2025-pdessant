@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   workout_scheduler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rockyd <rockyd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:14:35 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/11 21:06:58 by rockyd           ###   ########.fr       */
+/*   Updated: 2025/06/16 15:50:49 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,18 @@ struct WorkoutPlan *create_workout_schedule(char *username)
 
 	struct WorkoutPlan	*plan = build_base_plan(data);
 	if (!plan)
-	{
-		free_user_data(data);
-		return (NULL);
-	}
+		return (free_user_data(data), NULL);
 
 	struct WorkoutPlan	*refined = refine_plan(plan, data);
 	if (!refined)
-	{
-		free_user_data(data);
-		free_workout_plan(plan);
-		return (NULL);
-	}
+		return (free_user_data(data), free_workout_plan(plan), NULL);
+
 	if (refined != plan)
 		free_workout_plan(plan);
 	
-
 	int	duration = determine_duration(refined);
 	if (duration <= 0)
-	{
-		free_user_data(data);
-		free_workout_plan(refined);
-		return (NULL);
-	}
+		return (free_user_data(data), free_workout_plan(refined), NULL);
 
 	while (i < duration)
 	{
