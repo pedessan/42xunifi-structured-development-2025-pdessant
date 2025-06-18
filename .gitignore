@@ -1,4 +1,5 @@
 a.out
 *.h.gch
 *.h.pch
+*.o
 .vscode
