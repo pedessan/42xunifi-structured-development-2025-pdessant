@@ -6,11 +6,28 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 10:52:36 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/20 11:50:06 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/20 12:10:54 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "file.h"
+
+
+void free_book_list(t_book **head)
+{
+    t_book *tmp;
+
+    while (*head)
+    {
+        tmp = (*head)->next;
+        free((*head)->title);
+        free((*head)->author);
+        free(*head);
+        *head = tmp;
+    }
+}
+
+
 
 void init_catalog(t_book *c)
 {
@@ -55,8 +72,8 @@ t_book	*lst_new_book(int id, char *title, char *author)
 	if (!book)
 		return (NULL);
     book->id = id;
-    book->title = title;
-    book->author = author;
+    book->title = ft_strdup(title);
+    book->author = ft_strdup(author);
 	book->next = NULL;
 	return (book);
 }

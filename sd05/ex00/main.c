@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 09:08:41 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/20 11:55:31 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/20 12:19:59 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ char **check_line(char *s)
 }
 
 
-void save_lines_in_buff(int fd, t_book *catalog)
+void  save_infos_in_struct(int fd, t_book **catalog)
 {
     char    *line;
     char    **args = NULL;
-    int     status;
+   // int     status;
     int     counter = 0;
 
     line = get_next_line(fd);
@@ -59,7 +59,7 @@ void save_lines_in_buff(int fd, t_book *catalog)
         args = check_line(line);
         if (args)
         {                       //ft_atoi to be reviewed for better check on characters
-            book_lstadd_back(&catalog, lst_new_book(ft_atoi(args[1]), args[2], args[3]));
+            book_lstadd_back(catalog, lst_new_book(ft_atoi(args[1]), args[2], args[3]));
         }
         free(line);
         free_alloc(args);
@@ -71,7 +71,7 @@ void save_lines_in_buff(int fd, t_book *catalog)
 
 
 
-void    check_file(char *s, int *status, t_book *catalog)
+void    check_file(char *s, int *status, t_book **catalog)
 {
     int     fd;
 
@@ -81,7 +81,7 @@ void    check_file(char *s, int *status, t_book *catalog)
         *status = EXIT;
         return ;
     }
-    save_infos_in_struct(status, catalog);
+    save_infos_in_struct(fd, catalog);
     close (fd);
     *status = VALID;
 }
@@ -89,7 +89,7 @@ void    check_file(char *s, int *status, t_book *catalog)
 
 void    print_istructions(int *status)
 {
-    ft_printf("lauch> ./tracker file.txt");
+    ft_printf("launch> ./tracker file.txt\n");
     *status = EXIT;
 }
 
@@ -127,12 +127,12 @@ void    print_error(void)
 
 int main(int ac, char **av)
 {
-    int     status;
-    int     input_1;
-    char    *input_2;
-    t_book  catalog;
+    int     status = 0;
+    //int     input_1;
+    //char    *input_2;
+    t_book  *catalog = NULL;
 
-    init_catalog(&catalog);
+    //init_catalog(&catalog);
     if (ac == 2)
         check_file(av[1], &status, &catalog);
     else
@@ -148,7 +148,7 @@ int main(int ac, char **av)
         if (status == INVALID)
             print_error();
         if (status == EXIT)
-            free_all();
+            free_book_list(&catalog);
     }
     return (0);
 }
