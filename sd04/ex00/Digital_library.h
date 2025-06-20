@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   Digital_library.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/20 09:06:09 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/20 11:51:02 by pdessant         ###   ########.fr       */
+/*   Created: 2025/06/18 15:14:34 by pdessant          #+#    #+#             */
+/*   Updated: 2025/06/18 15:21:12 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
- 
-#include "libft/libft.h"
-
-#define MAX_CONSULT 1000
-
-typedef enum
-{
-    VALID,
-    INVALID,
-    EXIT
-}   status;
+#ifndef DIGITAL_LIBRARY_H
+# define DIGITAL_LIBRARY_H
 
 typedef enum
 {
@@ -32,17 +21,10 @@ typedef enum
 
 typedef struct z_book
 {
+    int fd;
     int id;
     char *title;
-    char *author;
-    struct z_book *next;
+    char *Author;
 }   t_book;
-
-
-/* PROTOTYPES */
-
-void    init_catalog(t_book *c);
-void	book_lstadd_back(t_book **lst, t_book *new);
-t_book	*lst_new_book(int id, char *title, char *author);
 
 #endif
