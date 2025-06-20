@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 09:08:41 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/20 12:41:02 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/20 13:11:49 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,51 @@ void    print_istructions(int *status)
     *status = EXIT;
 }
 
+
 void put_prompt_line(int *status)
 {
     char *line;
 
-    ft_printf("To search by title: digit 0\nTo search by Author: digit 1\nTo exit: digit exit\n> ");
-    line = get_next_line(0);
+    ft_printf("To search by title:  digit 0\n");
+    ft_printf("To search by Author: digit 1\n");
+    ft_printf("To exit:             digit exit\n");
+    ft_printf("> ");
+
+    line = get_next_line(STDIN_FILENO);
+    if (!line)
+    {
+        *status = EXIT;
+        return;
+    }
+
+    if (strcmp(line, "exit\n") == 0)
+        *status = EXIT;
+    else if (strcmp(line, "0\n") == 0)
+    {
+        ft_printf ("%s\n", line);
+        *status = VALID; // o meglio BY_TITLE
+    }
+    else if (strcmp(line, "1\n") == 0)
+    {
+        ft_printf ("%s\n", line);
+        *status = VALID; // o meglio BY_AUTHOR
+    }
+    else
+        *status = INVALID;
+
+    free(line);
+}
+
+
+/* void put_prompt_line(int *status)
+{
+    char *line;
+
+    printf("To search by title:  digit 0\n");
+    printf("To search by Author: digit 1\n");
+    printf("To exit:             digit exit\n");
+    printf("> ");
+    line = get_next_line(STDIN_FILENO);
 
     if (!line)
     {
@@ -106,23 +145,32 @@ void put_prompt_line(int *status)
         return;
     }
 
-    if (!ft_strncmp(line, "exit", 4))
+    if (ft_strncmp(line, "exit\n", 5) == 0)
         *status = EXIT;
-    else if (!ft_strncmp(line, "0", 1))
+    else if (ft_strncmp(line, "0\n", 2) == 0)
+    {
+        *status = VALID;
         ft_printf ("%s\n", line);
-        //*status = BY_TITLE;
-    else if (!ft_strncmp(line, "1", 1))
+        *status = BY_TITLE;
+    }
+    else if (ft_strncmp(line, "1\n", 2) == 0)
+    {
+        *status = VALID;
         ft_printf ("%s\n", line);
-        //*status = BY_AUTHOR;
+        *status = BY_AUTHOR;
+    }
     else
+    {
+        //ft_printf(YELLOW "\nError: Invalid Input digit\n\n" RESET);
         *status = INVALID;
+    }
 
     free(line);
-}
+} */
 
 void    print_error(void)
 {
-    printf("Input 1 accepts only 0, 1, or exit");
+    ft_printf(YELLOW "Input 1 accepts only 0, 1, or exit\n" RESET);
 }
 
 int main(int ac, char **av)
