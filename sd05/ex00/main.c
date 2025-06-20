@@ -6,7 +6,7 @@
 /*   By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 09:08:41 by pdessant          #+#    #+#             */
-/*   Updated: 2025/06/20 12:19:59 by pdessant         ###   ########.fr       */
+/*   Updated: 2025/06/20 12:41:02 by pdessant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int check_commas(char *s)
             counter++;
         i++;
     }
-    if (counter == 3)
+    if (counter == 2)
         return (VALID);
     return (INVALID);
 }
@@ -59,10 +59,10 @@ void  save_infos_in_struct(int fd, t_book **catalog)
         args = check_line(line);
         if (args)
         {                       //ft_atoi to be reviewed for better check on characters
-            book_lstadd_back(catalog, lst_new_book(ft_atoi(args[1]), args[2], args[3]));
+            book_lstadd_back(catalog, lst_new_book(ft_atoi(args[0]), args[1], args[2]));
+            free_alloc(args);
         }
         free(line);
-        free_alloc(args);
         counter++;
         line = get_next_line(fd);
     }
