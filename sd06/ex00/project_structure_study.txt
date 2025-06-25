@@ -1,0 +1,69 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    project_structure_study.txt                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pdessant <pdessant@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/06/18 15:34:00 by pdessant          #+#    #+#              #
+#    Updated: 2025/06/18 16:18:05 by pdessant         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+
+//Digital_Library_Assistant
+
+- scans the txt file given from command line;
+
+- saves the lines in memory up to a max of 1000 books;
+
+- if the catalog is longer, prints a warning;
+
+- puts warnings about bad configured lines;
+
+- prints instructions;
+
+- put the prompt on terminal and awaits for number id for the research:
+    '1' stands for "search by author"
+    '2' stands for "search by title"
+
+- if BY_AUTHOR:
+
+- else if BY_TITLE:
+
+- close fd, free_all, close program;
+
+
+
+
+
+
+void    main(int ac, char **av)
+{
+    while ()
+    - put_prompt();
+    - 
+}
+
+
+
+
+
+/*
+//server
+- reads the catalog
+- saves valid lines in memory
+- puts warnings about bad configured lines,
+- awaits for users to connect for their reasearch
+- sends instructions and the results
+
+
+//client
+- connects to the server
+- prints instructions sent from server
+- put the prompt on terminal and awaits for number id for the research:
+    '1' stands for "search by author"
+    '2' stands for "search by title"
+- 
+*/
